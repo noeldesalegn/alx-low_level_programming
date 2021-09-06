@@ -1,5 +1,5 @@
 #include <stdio.h>
-void rev_string(char *);
+void rev_string(char *s);
 /**
  * main - check the code for Holberton School students.
  *
