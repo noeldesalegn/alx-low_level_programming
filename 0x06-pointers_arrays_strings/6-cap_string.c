@@ -1,26 +1,18 @@
 #include "main.h"
-#include <stdio.h>
-/**
- * cap_string - ...
- * @s: ...
- *
- * Return: char value
- */
 char *cap_string(char *s)
-int a = 0, i;
-int a = 0, i;
- hint cspc = 13;
-char spc[] = {32, '\t', '\n', 44, ';', 46, '!', '?', '"', '(', ')', '{', '}'};
-while (s[a])
 {
-i = 0;
-while (i < cspc)
+int i;
+for (i = 0; s[i] != '\0'; i++)
 {
-if ((a == 0 || s[a - 1] == spc[i]) && (s[a] >= 97 && s[a] <= 122))
-s[a] -= 32;
-i++;
-}
-a++;
-}
-return (s);
+if (i == 0 && (s[i] >= 97 && s[i] <= 122))	
+s[i] = s[i] - 32;      
+if ((s[i] <= 97 && s[i] >= 122) || (s[i] >= 90 && s[i] <= 65))	
+i++;      
+if (s[i] == ' ' || s[i] == '!' || s[i] == ',' || s[i] == '\t' || s[i] == '\n' || s[i] == '{' || s[i] == '}' || s[i] == ';' || s[i] == '?' || s[i] == '.' || s[i] == ')' || s[i] == '(' || s[i] == '?')
+{	  
+if (s[i + 1] >= 97 && s[i + 1] <= 122)	    
+s[i + 1] = s[i + 1] - 32;	  
+}      
+}  
+return (s);  
 }
