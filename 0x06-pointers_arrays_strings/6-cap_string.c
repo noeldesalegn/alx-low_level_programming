@@ -6,21 +6,26 @@
  * Return: Always 0.
  *
  */
-char *cap_string(char *s)
+char *cap_string(char *n)
 {
 int a = 0, i;
-int cspc = 13;
-char spc[] = {32, '\t', '\n', 44, ';', 46, '!', '?', '"', '(', ')', '{', '}'};
-while (s[a])
+int cap = 32; 
+int separators[] = {',',';','.','?','"','(',')','{','}',' ','\n','\t'};
+for (i = 0; n[i] != '\0'; i++)
 {
-i = 0;
-while (i < cspc)
-{	  
-if ((a == 0 || s[a - 1] == spc[i]) && (s[a] >= 97 && s[a] <= 122))
-s[a] -= 32;
-i++;
+if (n[i] >= 'a' && n[i] <= 'z')
+{
+n[i] = n[i] - cap;
 }
-a++;
+cap = 0;
+for (x = 0; x <= 12; x++)
+{
+if (n[i] == separators[x])
+{
+x = 12;
+cap = 32;
 }
-return (s);
+}
+}
+return (n);
 }
