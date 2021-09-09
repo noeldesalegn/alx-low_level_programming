@@ -1,24 +1,26 @@
-#include "main.h"
+#include <stdio.h>
+#include"main.h"
 /**
- * cap_string - ...
- * @s: ...
+ * cap_string - check the code for Holberton School students.
+ * @a: is a pointer type char
+ * Return: Always 0.
  *
- * Return: char value
  */
 char *cap_string(char *s)
 {
-int i;
-for (i = 0; s[i] != '\0'; i++)
+int a = 0, i;
+int cspc = 13;
+char spc[] = {32, '\t', '\n', 44, ';', 46, '!', '?', '"', '(', ')', '{', '}'};
+while (s[a])
 {
-if (i == 0 && (s[i] >= 97 && s[i] <= 122))	
-s[i] = s[i] - 32;      
-if ((s[i] <= 97 && s[i] >= 122) || (s[i] >= 90 && s[i] <= 65))	
-i++;      
-if (s[i] == ' ' || s[i] == '!' || s[i] == ',' || s[i] == '\t' || s[i] == '\n' || s[i] == '{' || s[i] == '}' || s[i] == ';' || s[i] == '?' || s[i] == '.' || s[i] == ')' || s[i] == '(' || s[i] == '?')
+i = 0;
+while (i < cspc)
 {	  
-if (s[i + 1] >= 97 && s[i + 1] <= 122)	    
-s[i + 1] = s[i + 1] - 32;	  
-}      
-}  
-return (s);  
+if ((a == 0 || s[a - 1] == spc[i]) && (s[a] >= 97 && s[a] <= 122))
+s[a] -= 32;
+i++;
+}
+a++;
+}
+return (s);
 }
