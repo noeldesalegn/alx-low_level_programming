@@ -8,22 +8,19 @@
  */
 char *_strdup(char *str)
 {
-int a = 0, i = 1;
-char *s;
-if (str == NULL)
+int size = 0;
+char *ptr, *ret;
+if (!str)
 return (NULL);
-while (str[i])
-{
-i++;
-}
-s = malloc((sizeof(char) * i) + 1);
-if (s == NULL)
+ptr = str;
+while (*ptr++)
+size++;
+ret = malloc(size + 1);
+if (!ret)
 return (NULL);
-while (a < i)
-{
-s[a] = str[a];
-a++;
-}
-s[a] = '\0';
-return (s);
+ptr = ret;
+while (*str)
+*ptr++ = *str++;
+*ptr = 0;
+return (ret);
 }
