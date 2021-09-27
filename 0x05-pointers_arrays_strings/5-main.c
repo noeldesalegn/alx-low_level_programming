@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdio.h>
-void rev_string(char *lo);
 /**
  * main - check the code
  *
